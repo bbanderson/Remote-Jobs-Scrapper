@@ -41,10 +41,19 @@ def coloring(term):
     color = "#99b898"
   return color
 
+# def calc_len(term, data_list):
+#   count = 0
+#   for data in data_list:
+#     if 
+
+
 
 @app.route("/report")
 def report():
   raw_terms = request.args.get("term")
+  print(raw_terms)
+  if raw_terms == "":
+    return redirect("/")
   terms = raw_terms.split("+")
   remove_space = terms[0].split(" ")
   multiple_term = []
@@ -62,10 +71,13 @@ def report():
     color = coloring(term)
     multiple_term.append({
       "wework":result["wework"],
+      # "wework_count":calc_len(result["wework"]),
       "stack":result["stack"],
+      # "stack_count":len(result["stack"]),
       "remote":result["remote"],
+      # "remote_count":len(result["remote"]),
       "total":result["total"],
-      "term":term.capitalize(),
+      "term":term,
       "color": color
     })
   # print(multiple_term)
@@ -73,26 +85,28 @@ def report():
     "report.html",
     terms_list=multiple_term,
     raw_terms=raw_terms,
+    # wework_count=len(multiple_term)
     )
 
 @app.route("/export")
 def export():
   try:
-    # term = request.args.get("term")
-    raw_terms = request.args.get("term")
-    terms = raw_terms.split("+")
-    remove_space = terms[0].split(" ")
-    for term in remove_space:
+    term = request.args.get("term")
+    # term = term.lower()
+    # raw_terms = request.args.get("term")
+    # terms = raw_terms.split("+")
+    # remove_space = terms[0].split(" ")
+    # for term in remove_space:
     # multiple_term = []
-      if not term:
-        raise Exception()
+    if not term:
+      raise Exception()
+    # else:
+    term = term.lower()
+    database = db.get(term)
+    if not database:
+      raise Exception()
       # else:
-      term = term.lower()
-      database = db.get(term)
-      if not database:
-        raise Exception()
-        # else:
-      make_csv(database, term)
+    make_csv(database, term)
     # return redirect(f"/export?term={raw_terms}")
     return send_file(f"{term}.csv")
   except:

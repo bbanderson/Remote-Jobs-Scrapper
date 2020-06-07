@@ -15,4 +15,4 @@ def make_csv(database, term):
     writer.writerow([term]+list(job.values()))
   for job in remote:
     writer.writerow([term]+list(job.values()))
-  return send_file(f"{term}.csv")
+  return

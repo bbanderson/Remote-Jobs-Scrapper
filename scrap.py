@@ -11,10 +11,15 @@ def so(term):
   divs = soup.find_all("div", {"class": "-job"})
   jobs = []
   for div in divs:
+    if div.find("img", {"class": "grid--cell"}):
+      avatar_url = div.find("img", {"class": "grid--cell"})["src"]
+    else:
+      avatar_url = None
     title = div.find("h2").find("a")["title"]
     company = div.find("h3").find("span").get_text(strip=True)
     link = div.find("h2").find("a")["href"]
     data = {
+      "avatar": avatar_url,
       "title": title,
       "company": company,
       "link": f"https://stackoverflow.com{link}"
@@ -63,21 +68,45 @@ def remote(term):
   jobs = []
   for td in tds:
     link = td.find("a", {"class": "preventLink"})["href"]
-    company = td.find("h3").get_text(strip=True)
-    title = td.find("h2").get_text(strip=True)
-    data = {
-      "title": title,
-      "company": company,
-      "link": f"https://remoteok.io{link}"
-    }
-    jobs.append(data)
-  print(f"Scrapping {term} has completed! Total {len(jobs)} jobs on Remote.")
-  return jobs
+    a = soup.find("a", {"href": link})
+    # print(a["data-z"])
+    # print(a.find("img", {"class": "logo"}))
+    try:
+      if a.find("img", attrs={"class": "logo"}):
+        if a.find("img", {"class": "logo"})["data-src"]:
+          avatar_url = a.find("img", {"class": "logo"})["data-src"]
+
+      # avatar_url = a.find("img", {"class": "logo"})['data-src'].get_text()
+      # print(avatar_url)
+      # else:
+      #   continue
+    # else:
+    #   continue
+          company = td.find("h3").get_text(strip=True)
+          title = td.find("h2").get_text(strip=True)
+          data = {
+            "avatar": avatar_url,
+            "title": title,
+            "company": company,
+            "link": f"https://remoteok.io{link}"
+          }
+          jobs.append(data)
+        print(f"Scrapping {term} has completed! Total {len(jobs)} jobs on Remote.")
+        return jobs
+    except:
+      continue
 
 def scrap(term):
   wework_result = wework(term)
   so_result = so(term)
   remote_result = remote(term)
+  if wework_result is None:
+    wework_result = []
+  if so_result is None:
+    so_result = []
+  if remote_result is None:
+    remote_result = []
+
   total_count = len(remote_result) + len(wework_result) + len(so_result)
   result = {
     "wework": wework_result,

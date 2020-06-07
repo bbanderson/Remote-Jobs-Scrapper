@@ -6,6 +6,36 @@
   }
 }
 
+footer {
+  position: absolute;
+  margin: auto 0;
+  bottom: 10px;
+  width: 100%;
+}
+
+section > h4 {
+  margin-top: 15px;
+  color: rgb(62, 54, 54);
+  background-color: #fff;
+  border-bottom: outset 3px #000;
+  /* text-shadow: 3px 2px 7px rgba(44, 44, 44, 0.5); */
+  font-weight: 900;
+}
+
+.fa-file-csv {
+  color: #0e3923;
+}
+
+.category {
+  margin: 10px 0;
+  width: auto;
+  text-align: center;
+  border-radius: 15px;
+}
+
+img {
+  max-width: 100px;
+}
 
 video {
   /* position: absolute; */
@@ -92,6 +122,7 @@ h1 {
   position: absolute;
   display: inline-block;
   border-radius: 30px;
+  height: auto;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.8);
   top: 30%;
@@ -185,7 +216,7 @@ body.report {
 
 header.result {
   z-index: 1;
-  position: absolute;
+  position: fixed;
   height: 95px;
   background-color: #000;
 }
@@ -202,6 +233,7 @@ h4.search-term {
 
 .result h2 {
   color: #d92027;
+  display: inline-flex;
 }
 
 .card {
@@ -266,6 +298,206 @@ section {
 }
 
 .result-span {
+  max-width: 200px;
   height: auto;
   border-bottom: solid 1px #ee9921;
+}
+
+
+.sub-menu h3 {
+  color: azure;
+  /* color: rgb(145, 98, 255); */
+  display: inline-block;
+  vertical-align: middle;
+
+}
+
+
+.sub-menu {
+  position: relative;
+  bottom: 12px;
+}
+
+/* MediaQuery */
+@media (max-width: 1950px) {
+  .card {
+    display: block;
+    width: 75%;
+    margin: auto auto 40px;
+  }
+}
+
+
+@media (max-width: 1800px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .main-box {
+    width: 450px;
+    height: 350px;
+    padding: 40px;
+    position: absolute;
+    display: inline-block;
+    border-radius: 30px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 30%;
+    left: 15%;
+    overflow: auto;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .main-box button {
+    position: absolute;
+    margin: auto;
+    right: 35%;
+    bottom: 20px;
+  }
+
+  input {
+    margin-bottom: 5px;
+  }
+  
+  input[placeholder] {
+    letter-spacing: 3px;
+  }
+
+  .sub-box {
+    width: 450px;
+    height: 350px;
+    padding: 40px;
+    position: absolute;
+    display: inline-block;
+    border-radius: 30px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 30%;
+    right: 15%;
+    overflow: auto;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .sub-box button {
+    position: absolute;
+    margin: auto;
+    right: 35%;
+    bottom: 20px;
+  }
+
+}
+
+@media (max-width: 1300px) {
+  body {
+    text-align: center;
+  }
+  .container {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .card {
+    width: 75%;
+    display: block;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  input {
+    height: 20px;
+  }
+
+  .main-box {
+    width: 350px;
+    height: 250px;
+    padding: 35px;
+    position: static;
+    display: block;
+    border-radius: 30px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 30%;
+    left: 15%;
+    margin: 90px auto 30px;
+    overflow: auto;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .main-box button {
+    position: relative;
+    right: 0;
+    bottom: 0;
+  }
+
+  .sub-box {
+    width: 350px;
+    height: 250px;
+    padding: 35px;
+    position: static;
+    display: block;
+    border-radius: 30px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 30%;
+    right: 15%;
+    margin: 90px auto;
+    overflow: auto;
+    animation: fadeIn 1s ease-in-out;
+  }
+  .sub-box button {
+    position: relative;
+    right: 0;
+    bottom: 0;
+  }
+
+}
+
+@media (max-width: 1250px) {
+  body {
+    text-align: center;
+  }
+  .container {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .result-span {
+    font-size: 1rem;
+    max-width: 100px;
+  }
+
+  img {
+    max-width: 60px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  .main-box {
+    display: block;
+    position: static;
+    left: 0;
+    right: 0;
+    height: 300px;
+    margin: 90px auto 30px;
+  }
+
+  .sub-box {
+    display: block;
+    position: static;
+    left: 0;
+    right: 0;
+    height: auto;
+    /* height: 300px; */
+    margin: 90px auto;
+    overflow: visible;
+  }
 }

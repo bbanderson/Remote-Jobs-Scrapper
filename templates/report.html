@@ -2,22 +2,20 @@
 
 <body class="report">
   <header class="result navbar fixed-top">
-    <h1>Remote Jobs</h1>
+    <h1><a id="logo-a" href="/" style="color: #fff;">Remote Jobs</a></h1>
     <h2>
       {% for term in terms_list %}
-        {{term.total}} {{term.term}}
-      {% endfor %}
+        <p>[{{term.total}}&nbsp;{{term.term}}]&nbsp;</p>
+      {% endfor %}&nbsp;jobs found.
     </h2>
-    <h3>jobs found.</h3>
-    <a class="result" href="/export?term={{raw_terms}}">Export to CSV</a>
-    <a class="result" href="/">&lbarr; Go back</a>
   </header>
   <main>
 
     {% for each_term in terms_list %}
     <div class="card" data-effect="zoom">
       <div class="term" style="background-color: {{each_term.color}}">
-        <h3>{{each_term["term"]}}</h3>
+        <div class="sub-menu navbar"><h3>{{each_term["term"]}}</h3><a href="/export?term={{each_term['term']}}"><i class="fas fa-file-csv"></i></a></div>
+        <h5 class="category" style="background-color: {{each_term.color}}">Wework Remotely</h5>
         <section>
           <h4>Logo</h4>
           <h4>Title</h4>
@@ -31,27 +29,41 @@
             {% endif %}
             <span class="result-span"><p>{{job.title}}</p></span>
             <span class="result-span"><p>{{job.company}}</p></span>
-            <span class="result-span"><p><a href="{{job.link}}" target="_blank">Apply</a></p></span>
+            <span class="result-span"><p><a class="btn btn-danger" href="{{job.link}}" target="_blank">Apply</a></p></span>
           {% endfor %}
         </section>
+        <h5 class="category" style="background-color: {{each_term.color}}">Stack Overflow</h5>
         <section>
+          <h4>Logo</h4>
           <h4>Title</h4>
           <h4>Company</h4>
           <h4>Link</h4>
           {% for job in each_term["stack"] %}
-            <p>{{job.title}}</p>
-            <p>{{job.company}}</p>
-            <p><a href="{{job.link}}" target="_blank">Apply</a></p>
+            {% if job.avatar %}
+            <span class="result-span"><img class="company-logo" src="{{job.avatar}}"></span>
+            {% else %}
+            <span class="result-span"><p>No logo</p></span>
+            {% endif %}
+            <span class="result-span"><p>{{job.title}}</p></span>
+            <span class="result-span"><p>{{job.company}}</p></span>
+            <span class="result-span"><p><a class="btn btn-danger" href="{{job.link}}" target="_blank">Apply</a></p></span>
           {% endfor %}
         </section>
+        <h5 class="category" style="background-color: {{each_term.color}}">RemoteOK</h5>
         <section>
+          <h4>Logo</h4>
           <h4>Title</h4>
           <h4>Company</h4>
           <h4>Link</h4>
           {% for job in each_term["remote"] %}
-            <p>{{job.title}}</p>
-            <p>{{job.company}}</p>
-            <p><a href="{{job.link}}" target="_blank">Apply</a></p>
+            {% if job.avatar %}
+            <span class="result-span"><img class="company-logo" src="{{job.avatar}}"></span>
+            {% else %}
+            <span class="result-span"><p>No logo</p></span>
+            {% endif %}
+            <span class="result-span"><p>{{job.title}}</p></span>
+            <span class="result-span"><p>{{job.company}}</p></span>
+            <span class="result-span"><p><a class="btn btn-danger" href="{{job.link}}" target="_blank">Apply</a></p></span>
           {% endfor %}
         </section>
 
@@ -59,8 +71,4 @@
     </div>  
     {% endfor %}
   </main>
-  <script type="text/javascript" src={{url_for("static", filename="js/index.js")}}></script>
-
-</body>
-
-</html>
+  {% include "footer.html" %}
