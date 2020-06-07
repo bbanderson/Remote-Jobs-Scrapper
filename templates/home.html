@@ -1,0 +1,33 @@
+{% include "header.html" %}
+
+<body class="home">
+  <!-- <header> -->
+    <nav class="navbar">
+      <a class="navbar-brand" href="https://www.github.com/bbanderson" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
+    </nav>
+  <!-- </header> -->
+  <div class="main-box main-box-color">
+    <h1>Get some Remote Jobs<br>And be Steve Jobs</h1>
+    <form class="js-add-form">
+      <h4 class="search-term">Search by term:</h4>
+      <input class="form-control" placeholder="i.e python" required autofocus />
+      <button class="btn btn-dark" type="submit">Add your desire</button>
+    </form>
+  </div>
+  <div class="sub-box main-box-color js-added added">
+    <form id="js-term" action="/report">
+      <input class="hiding" name="term" type="text" value="">
+      <ul></ul>
+      <button class="btn btn-dark" type="submit">Go for innovation</button>
+    </form>
+  </div>
+  <div class="power">
+    <i class="fab fa-stack-overflow"></i>
+  </div>
+  <footer>
+
+  </footer>
+  <script type="text/javascript" src={{url_for("static", filename="js/index.js")}}></script>
+</body>
+
+</html>

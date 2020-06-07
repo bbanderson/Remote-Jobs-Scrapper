@@ -1,0 +1,271 @@
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  } to {
+      opacity: 1;
+  }
+}
+
+
+video {
+  /* position: absolute; */
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+  background-size: cover;
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+body {
+  background-color: #000;
+  /* color: #fff; */
+  text-align: center;
+  position: relative;
+  display: contents;
+  font-family: 'Markazi Text', serif;
+  animation: fadeIn 1s linear;
+
+  /* height: 100%; */
+
+}
+
+/* Boxes */
+.main-box {
+  padding: 50px;
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 30%;
+  left: 15%;
+  width: 600px;
+  height: 400px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.main-box button {
+  position: absolute;
+  margin: auto;
+  right: 41%;
+  bottom: 30px;
+}
+
+input {
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+input[placeholder] {
+  text-align-last: center;
+  letter-spacing: 3px;
+}
+
+button {
+  background-color: #fff;
+  color: #fff;
+}
+
+h1 {
+  color: #fff;
+  font-size: 4rem;
+  text-shadow: 3px 5px 3px rgba(44, 44, 44, 0.8);
+  font-family: 'Markazi Text', serif;
+}
+
+.search-term {
+  color: #fff;
+}
+
+.sub-box {
+  width: 600px;
+  height: 400px;
+  padding: 50px;
+  position: absolute;
+  display: inline-block;
+  border-radius: 30px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 30%;
+  right: 15%;
+  overflow: auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.sub-box button {
+  position: absolute;
+  margin: auto;
+  right: 40%;
+  bottom: 30px;
+}
+
+.logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 3px 5px 3px rgba(44, 44, 44, 0.8);
+  font-family: 'Markazi Text', serif;
+  font-weight: 700;
+}
+
+.search {
+  color:#0f1115;
+  font-weight:700;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  border:0;
+  font-size:1.5em;
+  padding:.5em;
+  outline:none;
+  box-shadow:none;
+  -webkit-box-shadow:none;
+  -moz-box-shadow:none;
+  text-align:center;
+  background:0 0;
+  color:#fff;
+  border-bottom:2px solid #fff;
+  text-align:left;color:#0f1115;
+  background:#fff;
+  border-radius:3px;
+  box-shadow:1px 2px 4px rgba(0,0,0,.1);
+  padding-left:2.5em;
+  background-image:url(/assets/search-black.png);
+  background-repeat:no-repeat;
+  background-size:1em;
+  background-position:.75em center;
+  width:350px;
+  max-width:80vw
+}
+
+li {
+  text-align: left;
+  font-size: 2rem;
+}
+
+.hiding {
+  display: none;
+}
+
+.del-btn-size {
+  font-size: 1rem;
+}
+
+/* Report */
+body.report {
+  z-index: -2;
+  color: #000;
+  background-color: black;
+}
+
+.black {
+  background-color: #000;
+}
+
+/* .result {
+  line-height: 1;
+  height: 1000px;
+} */
+
+/* div.result  h1, h2, h3, h4, a {
+  color: #fff;
+  position: relative;
+  top: 300px;
+} */
+
+header.result {
+  z-index: 1;
+  position: absolute;
+  height: 95px;
+  background-color: #000;
+}
+
+nav > a {
+  position: absolute;
+  top: 0;
+}
+
+h4.search-term {
+  position: relative;
+  top: 0;
+}
+
+.result h2 {
+  color: #d92027;
+}
+
+.card {
+  /* left: 10%; */
+  top: 130px;
+  position: relative;
+  display: inline-block;
+  /* grid-template-columns: repeat(1, 1fr); */
+  /* display: block; */
+  width: 40%;
+  font-size: 2rem;
+  text-align: start;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2%;
+  margin: auto 20px 30px;
+  height: 900px;
+  overflow: auto;
+}
+
+div.term {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #ff9595;
+}
+
+/* div.result h1, h2, h3, h4, a {
+  color: #000;
+  position: relative;
+  top: 0;
+} */
+
+.term > h3 {
+  color: #fff;
+}
+
+section {
+  position: relative;
+  display: grid;
+  /* grid-row: 10px; */
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.company {
+  /* display: inline-block;
+  margin-top: 15px; */
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-color: #fff;
+  background-position: center center;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  /* left: -35px; */
+  /* position: absolute; */
+  border: 0.1px solid #212529;
+}
+
+.result-span {
+  height: auto;
+  border-bottom: solid 1px #ee9921;
+}
