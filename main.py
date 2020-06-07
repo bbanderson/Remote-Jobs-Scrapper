@@ -34,7 +34,7 @@ def coloring(term):
   elif "react" in term or "go" in term:
     color = "#5CCAE8"
   elif "git" in term or "shell" in term:
-    color = "#000"
+    color = "#D89CF6"
   elif "java" == term or "c" in term:
     color = "#FF9595"
   else:
