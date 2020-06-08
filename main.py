@@ -4,7 +4,7 @@ from scrap import scrap
 from export import make_csv
 from add import verify_and_add
 
-app = Flask("Remote Job")
+app = Flask(__name__)
 db = {}
 search_list = []
 
@@ -115,4 +115,6 @@ def export():
 
 # port = int(os.environ.get("PORT", 5000))
 # app.run(host="0.0.0.0", port=port)
-app.run()
+
+if __name__ == '__main__'"
+  app.run()
