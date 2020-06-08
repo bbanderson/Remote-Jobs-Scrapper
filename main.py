@@ -114,4 +114,4 @@ def export():
     return redirect("/")
 
 port = int(os.environ.get("PORT", 5000))
-app.run("127.0.0.1", port=port)
+app.run("0.0.0.0", port=port)
