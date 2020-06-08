@@ -10,18 +10,12 @@ def make_csv(database, term):
   remote = database["remote"]
   # print(wework)
   for job in wework:
-    if list(job.values())[1]:
-      continue
-    else:
-      writer.writerow([term]+list(job.values()))
+    remove_logo_url = list(job.values())[1:]
+    writer.writerow([term]+remove_logo_url)
   for job in stack:
-    if list(job.values())[1]:
-      continue
-    else:
-      writer.writerow([term]+list(job.values()))
+    remove_logo_url = list(job.values())[1:]
+    writer.writerow([term]+remove_logo_url)
   for job in remote:
-    if list(job.values())[1]:
-      continue
-    else:
-      writer.writerow([term]+list(job.values()))
+    remove_logo_url = list(job.values())[1:]
+    writer.writerow([term]+remove_logo_url)
   return
