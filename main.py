@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, send_file
 from scrap import scrap
 from export import make_csv
@@ -112,4 +113,5 @@ def export():
   except:
     return redirect("/")
 
-app.run("127.0.0.1")
+port = int(os.environ.get("PORT", 5000))
+app.run("127.0.0.1", port=port)
