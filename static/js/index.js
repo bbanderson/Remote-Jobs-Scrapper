@@ -116,6 +116,33 @@ function loadData() {
 }
 form.addEventListener("submit", handleSubmit)
 
+function disableBtn() {
+  const btn = addedForm.querySelector("button")
+  const loading = new Image()
+  loading.src = "https://i.ya-webdesign.com/images/loading-png-gif.gif"
+  loading.width = "30"
+  loading.height = "30"
+  btn.innerText = ""
+  btn.style.background = "none"
+  btn.style.outline = "none"
+  btn.style.border = "none"
+  btn.style.cursor = "wait"
+  btn.appendChild(loading)
+  btn.classList.remove("btn")
+  btn.classList.remove("btn-dark")
+  btn.classList.add("disabled")
+}
+
+function noticeUser(str) {
+  document.querySelector(".notice").innerHTML = "Wait a second plz,<br>Scrapping..."
+  const message = form.querySelector(".search-term")
+  message.innerHTML = `Pulling latest remote job list<br>[ ${str}]<br>from<br>WeWork / StackOverflow / RemoteOK`
+  const mainBoxInput = form.querySelector("input")
+  const mainBoxButton = form.querySelector("button")
+  mainBoxInput.classList.add("hiding")
+  mainBoxButton.classList.add("hiding")
+  disableBtn()
+}
 
 function handleReport(e) {
   const li = document.querySelectorAll("li")
@@ -125,11 +152,10 @@ function handleReport(e) {
   }
   // console.log(str);
   addedForm.querySelector("input").setAttribute("value", str)
-  
-  
   // console.log(e.target.parentNode);
-  
+  noticeUser(str)
 }
+
 addedForm.querySelector("button").addEventListener("click", handleReport)
 
 loadData();
