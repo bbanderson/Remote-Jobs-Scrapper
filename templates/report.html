@@ -14,7 +14,18 @@
     {% for each_term in terms_list %}
     <div class="card" data-effect="zoom">
       <div class="term" style="background-color: {{each_term.color}}">
-        <div class="sub-menu navbar"><h3>{{each_term["term"]}}</h3><a href="/export?term={{each_term['term']}}"><i class="fas fa-file-csv"></i></a></div>
+        <div class="sub-menu navbar">
+          <h3>{{each_term["term"]}}</h3>
+          {% if "+" in each_term['term'] %}
+            <a href="/export?term={{each_term['sub_term_for_plus']}}">
+              <i class="fas fa-file-csv"></i>
+            </a>
+          {% else %}
+            <a href="/export?term={{each_term['term']}}">
+              <i class="fas fa-file-csv"></i>
+            </a>
+          {% endif %}
+        </div>
         <h5 class="category" style="background-color: {{each_term.color}}">Wework Remotely</h5>
         <section>
           <h4>Logo</h4>

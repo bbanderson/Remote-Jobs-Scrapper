@@ -66,6 +66,12 @@ def report():
     print(term)
     if term == "":
       continue
+    # Logic for exporting "+"
+    string_plus = ""
+    for char in term:
+      if char == "+":
+        char = "%2B"
+      string_plus += char
     # print(term)
   # term = request.form[""]
     term = term.lower()
@@ -85,13 +91,14 @@ def report():
       # "remote_count":len(result["remote"]),
       "total":result["total"],
       "term":term,
+      "sub_term_for_plus": string_plus,
       "color": color
     })
   # print(multiple_term)
   return render_template(
     "report.html",
     terms_list=multiple_term,
-    raw_terms=raw_terms,
+    raw_terms=raw_terms
     # wework_count=len(multiple_term)
     )
 
@@ -121,7 +128,7 @@ def export():
 
 
 
-if __name__ == "__main__":
-  port = int(os.environ.get("PORT", 5000))
-  app.run(host="0.0.0.0", port=port)
-# app.run("127.0.0.1")
+# if __name__ == "__main__":
+#   port = int(os.environ.get("PORT", 5000))
+#   app.run(host="0.0.0.0", port=port)
+app.run("127.0.0.1")
