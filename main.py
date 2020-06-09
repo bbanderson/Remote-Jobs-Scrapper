@@ -52,14 +52,20 @@ def coloring(term):
 @app.route("/report")
 def report():
   raw_terms = request.args.get("term")
-  print(raw_terms)
+  # print(raw_terms)
   if raw_terms == "":
     return redirect("/")
-  terms = raw_terms.split("+")
-  remove_space = terms[0].split(" ")
+  terms = raw_terms.split(" ")
+  # print(terms)
+  # for term in terms:
+
+  # remove_space = terms[0].split(" ")
   multiple_term = []
   # print(remove_space)
-  for term in remove_space[:-1]:
+  for term in terms:
+    print(term)
+    if term == "":
+      continue
     # print(term)
   # term = request.form[""]
     term = term.lower()
@@ -115,7 +121,7 @@ def export():
 
 
 
-if __name__ == "__main__":
-  port = int(os.environ.get("PORT", 5000))
-  app.run(host="0.0.0.0", port=port)
-# app.run("127.0.0.1")
+# if __name__ == "__main__":
+#   port = int(os.environ.get("PORT", 5000))
+#   app.run(host="0.0.0.0", port=port)
+app.run("127.0.0.1")
